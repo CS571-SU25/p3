@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import { Link } from "react-router";
 import Logo from '../../assets/img/logo.png';
 
@@ -19,9 +19,18 @@ export default function TastemapNavbar() {
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link as={Link} to="/" className="fs-6">💖View all restaurants</Nav.Link>
+                        <Nav.Link as={Link} to="/Restaurants" className="fs-6">💖View all restaurants</Nav.Link>
                         <Nav.Link as={Link} to="/collections" className="fs-6">⭐Collections</Nav.Link>
                     </Nav>
+                    <Form className="d-flex ms-3" onSubmit={(e) => { e.preventDefault(); /* handle search */ }}>
+                        <FormControl
+                            type="search"
+                            placeholder="Search"
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-primary">Search</Button>
+                    </Form>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
