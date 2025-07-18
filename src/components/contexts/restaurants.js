@@ -1,5 +1,6 @@
 import ThaiBasilImg from '../../assets/img/ThaiBasil.jpg';
 import LallandeImg from '../../assets/img/Lallande.jpg';
+import DQ from '../../assets/img/DQ.jpg'
 
 const restaurants = [
     {
@@ -20,7 +21,15 @@ const restaurants = [
         address: "1859 Monroe St, Madison, WI",
         recommended: ["Escargots", "Poisson en Croute", "Soupe a l'Oignon Gratinee"]
     },
-    // ...more restaurants
+    {
+        id: 3,
+        name: "Dairy Queen Grill & Chill",
+        image: DQ,
+        priceRange: "$10-20",
+        cuisine: "Fast food",
+        address: "3030 Fish Hatchery Rd, Madison, WI",
+        recommended: ["Chicken Strip Baskets", "OREO BLIZZARD Treat"]
+    },
 ];
 
 export default restaurants;
