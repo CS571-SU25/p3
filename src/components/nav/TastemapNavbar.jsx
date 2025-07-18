@@ -24,7 +24,7 @@ export default function TastemapNavbar() {
     };
 
     return (
-        <Navbar bg="white" variant="light" expand="sm" sticky="top" className="shadow-sm">
+        <Navbar bg="white" variant="light" expand="sm" sticky="top" className="navbar-form">
             <Container fluid className="px-4">
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
                     <img
