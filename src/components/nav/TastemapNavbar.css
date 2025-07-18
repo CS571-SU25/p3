@@ -1,0 +1,29 @@
+.navbar-form input[type="search"] {
+    background-color: #fceee3;
+    /* light peach background */
+    color: #333;
+    border: 2px solid #ff7f50;
+    /* coral border */
+    border-radius: 6px;
+    min-width: 250px;
+    padding: 0.4rem 0.8rem;
+}
+
+.navbar-form input::placeholder {
+    color: #999;
+}
+
+.navbar-form button {
+    background-color: #ff7f50;
+    /* coral button */
+    border: none;
+    color: white;
+    padding: 0.4rem 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+.navbar-form button:hover {
+    background-color: #ff5722;
+    /* deeper orange on hover */
+}

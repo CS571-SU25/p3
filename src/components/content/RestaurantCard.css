@@ -1,0 +1,33 @@
+.restaurant-card {
+    /* Cheese yellow */
+    border: 3px solid #63c3f0;
+    /* Sky blue */
+    border-radius: 12px;
+    color: #2d2d2d;
+    transition: transform 0.2s ease;
+}
+
+.restaurant-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(99, 195, 240, 0.4);
+}
+
+.restaurant-card .card-title {
+    color: #2d2d2d;
+    font-weight: bold;
+}
+
+.restaurant-card .btn {
+    background-color: #63c3f0;
+    color: white;
+    border: none;
+}
+
+.restaurant-card .btn:hover {
+    background-color: #4aaad4;
+}
+
+.collect-btn.collected {
+    background-color: #003366;
+    /* Dark blue */
+}

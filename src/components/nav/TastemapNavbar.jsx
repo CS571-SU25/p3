@@ -1,6 +1,7 @@
 import { Container, Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import Logo from '../../assets/img/logo.png';
+import './TastemapNavbar.css';
 
 export default function TastemapNavbar() {
     return (
@@ -22,6 +23,7 @@ export default function TastemapNavbar() {
                         <Nav.Link as={Link} to="/Restaurants" className="fs-6">💖View all restaurants</Nav.Link>
                         <Nav.Link as={Link} to="/collections" className="fs-6">⭐Collections</Nav.Link>
                     </Nav>
+
                     <Form className="d-flex ms-3" onSubmit={(e) => { e.preventDefault(); /* handle search */ }}>
                         <FormControl
                             type="search"
@@ -31,6 +33,7 @@ export default function TastemapNavbar() {
                         />
                         <Button variant="outline-primary">Search</Button>
                     </Form>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>
