@@ -7,7 +7,7 @@ const restaurants = [
         id: 1,
         name: "Thai Basil",
         image: ThaiBasilImg,
-        priceRange: "$20-40",
+        priceRange: "$$",
         cuisine: "Thai",
         address: "3519 University Ave, Madison, WI",
         recommended: ["Pad Thai", "Pineapple Curry", "Crab Rangoon"]
@@ -16,7 +16,7 @@ const restaurants = [
         id: 2,
         name: "Lallande",
         image: LallandeImg,
-        priceRange: "$50-100",
+        priceRange: "$$$",
         cuisine: "French",
         address: "1859 Monroe St, Madison, WI",
         recommended: ["Escargots", "Poisson en Croute", "Soupe a l'Oignon Gratinee"]
@@ -25,7 +25,7 @@ const restaurants = [
         id: 3,
         name: "Dairy Queen Grill & Chill",
         image: DQ,
-        priceRange: "$10-20",
+        priceRange: "$",
         cuisine: "Fast food",
         address: "3030 Fish Hatchery Rd, Madison, WI",
         recommended: ["Chicken Strip Baskets", "OREO BLIZZARD Treat"]
