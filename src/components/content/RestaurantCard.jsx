@@ -1,10 +1,7 @@
 import { Card, Row, Col, Button } from 'react-bootstrap';
-import { useState } from 'react';
 import './RestaurantCard.css';
 
-export default function RestaurantCard({ restaurant }) {
-    const [collected, setCollected] = useState(false);
-
+export default function RestaurantCard({ restaurant, isCollected, onToggle }) {
     return (
         <Card className="mb-4 shadow-sm restaurant-card">
             <Row className="g-0">
@@ -24,12 +21,11 @@ export default function RestaurantCard({ restaurant }) {
                         <Card.Text><small className="text-muted">{restaurant.address}</small></Card.Text>
 
                         <div className="d-flex gap-3 mt-3">
-
                             <Button
-                                className={`collect-btn ${collected ? 'collected' : ''}`}
-                                onClick={() => setCollected(!collected)}
+                                className={`collect-btn ${isCollected ? 'collected' : ''}`}
+                                onClick={() => onToggle(restaurant)}
                             >
-                                ⭐ {collected ? "Collected" : "Collect"}
+                                ⭐ {isCollected ? "Collected" : "Collect"}
                             </Button>
                         </div>
                     </Card.Body>

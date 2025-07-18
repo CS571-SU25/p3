@@ -1,11 +1,12 @@
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { createRoot } from 'react-dom/client';
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import React from 'react'
-import './index.css'
-import TastemapRouter from './components/nav/TastemapRouter.jsx'
+import React from 'react';
+import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <TastemapRouter />
-)
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

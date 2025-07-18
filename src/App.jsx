@@ -1,11 +1,23 @@
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import TastemapRouter from './components/nav/TastemapRouter';
 
-import React from 'react'
-import './index.css'
-import TastemapRouter from './components/nav/TastemapRouter.jsx'
+export default function App() {
+  const [collected, setCollected] = useState([]);
 
-createRoot(document.getElementById('root')).render(
-  <TastemapRouter />
-)
+  const toggleCollected = (restaurant) => {
+    setCollected(prev => {
+      if (prev.some(r => r.id === restaurant.id)) {
+        return prev.filter(r => r.id !== restaurant.id);
+      } else {
+        return [...prev, restaurant];
+      }
+    });
+  };
+
+  return (
+    <TastemapRouter
+      collected={collected}
+      toggleCollected={toggleCollected}
+    />
+  );
+}
