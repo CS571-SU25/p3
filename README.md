@@ -11,7 +11,7 @@
 <li>Filter✅</li>
 <li>Search Box✅</li>
 <li>Collections✅</li>
-<li>Log in/out⛔</li>
+<li>Log in/out✅</li>
 <li>User Comments⛔</li>
 </ul>
 

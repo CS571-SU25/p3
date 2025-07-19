@@ -1,16 +1,17 @@
 import { Container, Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
-import { Link } from "react-router-dom"; // ✅ correct import
+import { Link } from "react-router-dom";
 import Logo from '../../assets/img/logo.png';
 import './TastemapNavbar.css';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import LoginStatusContext from "../contexts/LoginStatus";
 
 export default function TastemapNavbar() {
+    // Filter
     const [query, setQuery] = useState('');
     const [price, setPrice] = useState('');
     const [cuisine, setCuisine] = useState('');
     const navigate = useNavigate();
-
     const handleSearch = (e) => {
         e.preventDefault();
 
@@ -21,6 +22,15 @@ export default function TastemapNavbar() {
 
         navigate(`/restaurants?${params.toString()}`);
         setQuery('');
+    };
+
+    // Log in
+    const [loginStatus, setLoginStatus] = useContext(LoginStatusContext);
+    const handleLogout = () => {
+        setLoginStatus(null);
+        sessionStorage.removeItem("loginStatus");
+        alert("Logged out!");
+        navigate("/");
     };
 
     return (
@@ -36,6 +46,45 @@ export default function TastemapNavbar() {
                     />
                     <span className="fw-bold fs-5">Tastemap Madison</span>
                 </Navbar.Brand>
+
+                <Form className="d-flex ms-3" onSubmit={handleSearch}>
+                    <Form.Select
+                        aria-label="Filter by price"
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                        className="me-2"
+                    >
+                        <option value="">All Prices</option>
+                        <option value="$">$</option>
+                        <option value="$$">$$</option>
+                        <option value="$$$">$$$</option>
+                        <option value="$$$$">$$$</option>
+                    </Form.Select>
+
+                    <Form.Select
+                        aria-label="Filter by cuisine"
+                        value={cuisine}
+                        onChange={(e) => setCuisine(e.target.value)}
+                        className="me-2"
+                    >
+                        <option value="">All Cuisines</option>
+                        <option value="Thai">Thai</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Mexican">Mexican</option>
+                    </Form.Select>
+
+                    <FormControl
+                        type="search"
+                        placeholder="Search"
+                        className="me-2"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                    <Button variant="outline-primary" type="submit">Search</Button>
+                </Form>
+
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav">
                     <Nav className="ms-auto">
@@ -43,43 +92,11 @@ export default function TastemapNavbar() {
                         <Nav.Link as={Link} to="/collections" className="fs-6">⭐ Collections</Nav.Link>
                     </Nav>
 
-                    <Form className="d-flex ms-3" onSubmit={handleSearch}>
-                        <Form.Select
-                            aria-label="Filter by price"
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
-                            className="me-2"
-                        >
-                            <option value="">All Prices</option>
-                            <option value="$">$</option>
-                            <option value="$$">$$</option>
-                            <option value="$$$">$$$</option>
-                            <option value="$$$$">$$$</option>
-                        </Form.Select>
-
-                        <Form.Select
-                            aria-label="Filter by cuisine"
-                            value={cuisine}
-                            onChange={(e) => setCuisine(e.target.value)}
-                            className="me-2"
-                        >
-                            <option value="">All Cuisines</option>
-                            <option value="Thai">Thai</option>
-                            <option value="Italian">Italian</option>
-                            <option value="Chinese">Chinese</option>
-                            <option value="Japanese">Japanese</option>
-                            <option value="Mexican">Mexican</option>
-                        </Form.Select>
-
-                        <FormControl
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                        />
-                        <Button variant="outline-primary" type="submit">Search</Button>
-                    </Form>
+                    {loginStatus?.username ? (
+                        <Button variant="outline-danger" onClick={handleLogout}>Logout</Button>
+                    ) : (
+                        <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                    )}
 
                 </Navbar.Collapse>
             </Container>
