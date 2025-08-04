@@ -7,6 +7,7 @@ import Restaurants from './pages/Restaurants';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
+import RestaurantDetail from './pages/RestaurantDetail';
 
 export default function TastemapRouter({ collected, toggleCollected }) {
     return (
@@ -26,6 +27,7 @@ export default function TastemapRouter({ collected, toggleCollected }) {
                 <Route path="/logout" element={<Logout />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="*" element={<NoMatch />} />
+                <Route path="/restaurants/:id" element={<RestaurantDetail />} />
             </Routes>
         </BrowserRouter>
     );

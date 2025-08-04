@@ -12,13 +12,13 @@
 <li>Search Box✅</li>
 <li>Collections✅</li>
 <li>Log in/out✅</li>
-<li>User Comments⛔</li>
+<li>User Comments✅</li>
 </ul>
 
 ## To do list
 <ul>
-<li>More restaurant data</li>
-<li>Use Pagination</li>
+<li>More restaurant data✅</li>
+<li>Use Pagination✅</li>
 <li>Likes on card, show like nbrs</li>
 <li>Home page implement</li>
 </ul>

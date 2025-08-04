@@ -20,6 +20,7 @@ export default function App() {
     });
   };
 
+
   return (
     <LoginStatusContext.Provider value={[loginStatus, setLoginStatus]}>
       <TastemapRouter
